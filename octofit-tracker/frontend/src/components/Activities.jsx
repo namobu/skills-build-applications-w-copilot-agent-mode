@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react'
 import { fetchEndpoint } from '../api'
 
-const endpointPath = '/api/activities/'
+const endpointPath = import.meta.env.VITE_CODESPACE_NAME
+  ? `https://${import.meta.env.VITE_CODESPACE_NAME}-8000.app.github.dev/api/activities/`
+  : 'http://localhost:8000/api/activities/'
 
 function formatDate(value) {
   if (!value) {

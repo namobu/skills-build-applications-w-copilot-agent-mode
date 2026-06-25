@@ -33,6 +33,16 @@ export function getCollectionPayload(payload, key) {
 }
 
 export async function fetchEndpoint(endpointPath, key) {
+  if (endpointPath.startsWith('http')) {
+    const response = await fetch(endpointPath);
+
+    if (!response.ok) {
+      throw new Error(`Unable to load ${endpointPath}: ${response.status}`);
+    }
+
+    return getCollectionPayload(await response.json(), key);
+  }
+
   const path = endpointPath.startsWith('/') ? endpointPath : `/${endpointPath}`;
   const response = await fetch(`${apiOrigin}${path}`);
 
