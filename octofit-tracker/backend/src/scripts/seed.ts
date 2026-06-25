@@ -3,7 +3,7 @@ import { LeaderboardEntry } from '../models/LeaderboardEntry';
 import { Team } from '../models/Team';
 import { User } from '../models/User';
 import { Workout } from '../models/Workout';
-import { connectDatabase, disconnectDatabase } from '../database';
+import { connectDatabase, disconnectDatabase } from '../config/database';
 
 async function seedDatabase() {
   console.log('Seed the octofit_db database with test data');

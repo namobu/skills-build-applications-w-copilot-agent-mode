@@ -4,7 +4,7 @@ import { LeaderboardEntry } from './models/LeaderboardEntry';
 import { Team } from './models/Team';
 import { User } from './models/User';
 import { Workout } from './models/Workout';
-import { connectDatabase } from './database';
+import { connectDatabase } from './config/database';
 
 const app = express();
 const port = Number(process.env.PORT) || 8000;

@@ -5,7 +5,7 @@ const LeaderboardEntry_1 = require("../models/LeaderboardEntry");
 const Team_1 = require("../models/Team");
 const User_1 = require("../models/User");
 const Workout_1 = require("../models/Workout");
-const database_1 = require("../database");
+const database_1 = require("../config/database");
 async function seedDatabase() {
     console.log('Seed the octofit_db database with test data');
     await (0, database_1.connectDatabase)();
