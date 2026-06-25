@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react'
-import { fetchCollection } from '../api'
+import { fetchEndpoint } from '../api'
+
+const endpointPath = '/api/leaderboard/'
 
 function Leaderboard() {
   const [leaderboard, setLeaderboard] = useState([])
@@ -9,7 +11,7 @@ function Leaderboard() {
   useEffect(() => {
     let isMounted = true
 
-    fetchCollection('leaderboard', 'leaderboard')
+    fetchEndpoint(endpointPath, 'leaderboard')
       .then((records) => {
         if (isMounted) {
           setLeaderboard(records)

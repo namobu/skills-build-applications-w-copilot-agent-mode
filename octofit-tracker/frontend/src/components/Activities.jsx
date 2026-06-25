@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react'
-import { fetchCollection } from '../api'
+import { fetchEndpoint } from '../api'
+
+const endpointPath = '/api/activities/'
 
 function formatDate(value) {
   if (!value) {
@@ -21,7 +23,7 @@ function Activities() {
   useEffect(() => {
     let isMounted = true
 
-    fetchCollection('activities', 'activities')
+    fetchEndpoint(endpointPath, 'activities')
       .then((records) => {
         if (isMounted) {
           setActivities(records)
